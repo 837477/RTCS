@@ -29,4 +29,12 @@ class Model:
     def schemize(self, document: dict) -> dict:
         """Generate JSON scheme"""
         return {**self.schema, **document}
+
+
+from model.mongodb.master_config import MasterConfig
+class DataManager:
+    def __init__(self):
+        self.db = MongoClient(Config.MONGODB_URI)
     
+    def init_model(self):
+        MasterConfig(self.db).init_location()
