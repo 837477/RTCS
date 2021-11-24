@@ -1,3 +1,4 @@
+import json
 from fastapi import Request
 from datetime import datetime
 from pymongo import MongoClient
@@ -37,4 +38,8 @@ class DataManager:
         self.db = MongoClient(Config.MONGODB_URI)
     
     def init_model(self):
-        MasterConfig(self.db).init_location()
+        # MasterConfig
+        for file_name in ["naming", "region"]:
+            path = "model/mongodb/initial_data/{}.json".format(file_name)
+            with open(path) as data:
+                MasterConfig(self.db).upsert_config(json.load(data))
