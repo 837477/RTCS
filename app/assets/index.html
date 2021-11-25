@@ -1,1 +1,273 @@
-<h1>Welcome to 837477's FastAPI-Pymongo</h1>
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RTCS</title>
+
+    <link rel="stylesheet" href="assets/static/css/main.css">
+    <!-- Scripts below are for demo only -->
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="assets/static/js/main.js"></script>
+    <script type="text/javascript" src="assets/static/js/map.js"></script>
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
+
+
+</head>
+
+<body>
+
+    <section class="is-title-bar">
+        <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+            <ul>
+                <li>RTCS</li>
+            </ul>
+        </div>
+    </section>
+
+    <br>
+    <header class="card-header">
+        <p id="patients" class="card-header-title">
+            <span class="icon"><i class="mdi mdi-finance"></i></span>
+            COVID-19 Real-Time Patients Status
+        </p>
+    </header>
+    <section class="section main-section">
+        <div id="information" class="grid gap-6 grid-cols-1 md:grid-cols-3 mb-6">
+            <div class="card">
+                <div class="card-content">
+                    <div class="flex items-center justify-between">
+                        <div class="widget-label">
+                            <h3>국내 확진자</h3>
+                            <h1 id="국내 확진자"></h1>
+                        </div>
+                        <span class="icon widget-icon text-red-500"><i
+                                class="mdi mdi-hospital-box-outline mdi-48px"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="flex items-center justify-between">
+                        <div class="widget-label">
+                            <h3>전국 추가 확진자</h3>
+                            <h1 id="전국 추가 확진자"></h1>
+                        </div>
+                        <span class="icon widget-icon text-red-500"><i class="mdi mdi-hospital mdi-48px"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="flex items-center justify-between">
+                        <div class="widget-label">
+                            <h3>국내 치료중</h3>
+                            <h1 id="국내 치료중"></h1>
+                        </div>
+                        <span class="icon widget-icon text-blue-500"><i
+                                class="mdi mdi-battery-heart-variant mdi-48px"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="flex items-center justify-between">
+                        <div class="widget-label">
+                            <h3>국내 사망자</h3>
+                            <h1 id="국내 사망자"></h1>
+                        </div>
+                        <span class="icon widget-icon text-red-500"><i class="mdi mdi-coffin mdi-48px"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="flex items-center justify-between">
+                        <div class="widget-label">
+                            <h3>서울시 확진자</h3>
+                            <h1 id="서울시 확진자"></h1>
+                        </div>
+                        <span class="icon widget-icon text-red-500"><i
+                                class="mdi mdi-hospital-box-outline mdi-48px"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="flex items-center justify-between">
+                        <div class="widget-label">
+                            <h3>서울시 추가 확진자</h3>
+                            <h1 id="서울시 추가 확진자"></h1>
+                        </div>
+                        <span class="icon widget-icon text-red-500"><i class="mdi mdi-hospital mdi-48px"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="flex items-center justify-between">
+                        <div class="widget-label">
+                            <h3>서울시 치료중</h3>
+                            <h1 id="서울시 치료중"></h1>
+                        </div>
+                        <span class="icon widget-icon text-blue-500"><i
+                                class="mdi mdi-battery-heart-variant mdi-48px"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="flex items-center justify-between">
+                        <div class="widget-label">
+                            <h3>서울시 사망자</h3>
+                            <h1 id="서울시 사망자"></h1>
+                        </div>
+                        <span class="icon widget-icon text-red-500"><i class="mdi mdi-coffin mdi-48px"></i></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <br>
+    <header class="card-header">
+        <p id="vaccine" class="card-header-title">
+        </p>
+    </header>
+    <section class="section main-section">
+        <div id="information" class="grid gap-6 grid-cols-1 md:grid-cols-3 mb-6">
+            <div class="card">
+                <div class="card-content">
+                    <div class="flex items-center justify-between">
+                        <div class="widget-label">
+                            <h3>1차 접종자 누계</h3>
+                            <h1 id="1차 접종자 누계"></h1>
+                        </div>
+                        <span class="icon widget-icon text-blue-500"><i class="mdi mdi-needle mdi-48px"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="flex items-center justify-between">
+                        <div class="widget-label">
+                            <h3>1차 접종률</h3>
+                            <h1 id="1차 접종률"></h1>
+                        </div>
+                        <span class="icon widget-icon text-red-500"><i class="mdi mdi-finance mdi-48px"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="flex items-center justify-between">
+                        <div class="widget-label">
+                            <h3>2차 접종자 누계</h3>
+                            <h1 id="2차 접종자 누계"></h1>
+                        </div>
+                        <span class="icon widget-icon text-blue-500"><i class="mdi mdi-needle mdi-48px"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="flex items-center justify-between">
+                        <div class="widget-label">
+                            <h3>2차 접종률</h3>
+                            <h1 id="2차 접종률"></h1>
+                        </div>
+                        <span class="icon widget-icon text-red-500"><i class="mdi mdi-finance mdi-48px"></i></span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <br>
+    <header class="card-header">
+        <p class="card-header-title">
+            <span class="icon"><i class="mdi mdi-finance"></i></span>
+            COVID-19 Real-Time Local Patients Status
+        </p>
+    </header>
+    <section class="section main-section">
+    
+        <header class="card-header">
+            <p class="card-header-title">
+                <span class="icon"><i class="mdi mdi-map-search-outline"></i></span>
+                Map
+            </p>
+        </header>
+        <div>
+            <div id="map" style="width:100%; height:500px;">
+                <script type="text/javascript"
+                    src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{kakao_key}}&libraries=services"></script>
+            </div>
+        </div>
+    
+        <script>
+            var container = document.getElementById('map');
+            var options = {
+                center: new kakao.maps.LatLng(37.5436027, 127.0714474),
+                level: 7
+            };
+
+            var map = new kakao.maps.Map(container, options);
+
+            var geocoder = new kakao.maps.services.Geocoder();  // 주소-좌표 변환 객체를 생성합니다
+
+            var marker = new kakao.maps.Marker(); // 클릭한 위치를 표시할 마커입니다
+            var infowindow = new kakao.maps.InfoWindow({ zindex: 1 }); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
+
+            // 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
+            kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
+                searchDetailAddrFromCoords(mouseEvent.latLng, makeDetailAddr);
+
+                // 마커를 클릭한 위치에 표시합니다 
+                marker.setPosition(mouseEvent.latLng);
+                marker.setMap(map);
+
+            });
+
+            // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+            if (navigator.geolocation) {
+
+                // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+                navigator.geolocation.getCurrentPosition(function (position) {
+
+                    var lat = position.coords.latitude, // 위도
+                        lon = position.coords.longitude; // 경도
+
+                    var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+
+                    displayMarker(locPosition, null);  // 마커와 인포윈도우를 표시합니다
+
+                });
+
+            } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+
+                var locPosition = new kakao.maps.LatLng(37.566826, 126.9786567);
+                var message = 'geolocation을 사용할수 없어요..';
+                displayMarker(locPosition, message);
+            }
+        </script>
+    
+    </section>
+</body>
+
+</html>
