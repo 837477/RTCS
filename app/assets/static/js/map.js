@@ -47,16 +47,22 @@ function displayCenterInfo(result, status) {
 function makeDetailAddr(result, status) {
     if (status === kakao.maps.services.Status.OK) {
 
-        // $.post('/api/v1/local/region/', '{"test": "client"}').done(function (response) {
-        //     alert("success");
-        //     console.log(response);
-        // });
-
         data = ajax("/api/v1/local/region/", "POST", JSON.stringify({"location": result[0].address.address_name }));
-        console.log(data);
 
+        var content = '<div class="bAddr" style="width:300px; height:150px;">';
+        content += '<p>선택 된 위치 (Selected Location)</p>'; 
+        content += '<p>- ' + result[0].address.address_name + '</p> <hr>'; 
 
-        var content = '<div class="bAddr" style="width:250px; height:150px;">' + result[0].address.address_name + '</div>';
+        if (data == null) {
+            content += '<p>서울 특별시만 조회 가능합니다.<\p>';
+        }
+        else {
+            for (key in data) {
+                content += '<p> ' + key + '(' + data[key]['en_name'] + ')</p>';
+                content += '<p>- ' + data[key]['value'] + ' 명 (Person)</p>';
+            }
+        }
+        content += '</div>';
 
         // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
         infowindow.setContent(content);

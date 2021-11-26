@@ -31,6 +31,9 @@ async def region(data: RegionValidation):
         get_all_local_status(Dependencies.db),
         "region"
     )
+    if target_1 not in value:
+        return None
+
     return {
         target_1: value[target_1],
         target_2: value[target_2],

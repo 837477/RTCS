@@ -31,10 +31,11 @@ function today() {
 
 $(document).ready(function(){
     // patients
-    text = '<span class="icon"><i class="mdi mdi-finance"></i></span> COVID-19 Real-Time Patients Status ('+ today() + ')';
-    document.getElementById('patients').innerHTML = text;
     
     data = ajax("/api/v1/patients/status", "GET", null);
+    text = '<span class="icon"><i class="mdi mdi-finance"></i></span>Patients Status ('+ data['기준일']['value'].substr(0, 10) + ')';
+    document.getElementById('patients').innerHTML = text;
+
     document.getElementById('국내 확진자').innerHTML = data['국내 확진자']['value'];
     document.getElementById('전국 추가 확진자').innerHTML = data['전국 추가 확진']['value'];
     document.getElementById('국내 치료중').innerHTML = data['국내 치료중']['value'];
@@ -47,7 +48,7 @@ $(document).ready(function(){
 
     // vaccine
     data = ajax("/api/v1/vaccine/status", "GET", null);
-    text = '<span class="icon"><i class="mdi mdi-finance"></i></span> COVID-19 Real-Time Vaccine Status ('+ data['접종일']['value'] + ')';
+    text = '<span class="icon"><i class="mdi mdi-finance"></i></span>Vaccine Status ('+ data['접종일']['value'] + ')';
     document.getElementById('vaccine').innerHTML = text;
 
     document.getElementById('1차 접종자 누계').innerHTML = data['1차접종 누계']['value'];
