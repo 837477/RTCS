@@ -15,5 +15,5 @@ def get_all_local_status(db):
         api_data = get_api_data(Config.API_SECRET_KEY)
         result = api_data['TbCorona19CountStatusJCG']['row'][0]
         LocalStatus(db).upsert_local_status(result)
-    
+
     return result

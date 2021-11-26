@@ -1,10 +1,7 @@
-"""
-Current status of infected people (limited to the metropolitan area)
-"""
-
 from fastapi import APIRouter
 from dependencies import Dependencies, Config
 from controller.patient import get_patients, get_infected_persons
+from controller import map_naming
 
 
 router = APIRouter(
@@ -15,7 +12,7 @@ router = APIRouter(
 @router.get("/status")
 async def status():
     data = get_patients(Dependencies.db)
-    return data
+    return map_naming(Dependencies.db, data, "naming")
 
 
 @router.get("/infected/status")
