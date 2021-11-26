@@ -10,4 +10,12 @@ class MasterConfig(Model):
         )
 
     def get_data(self, key: str):
-        return self.col.find_one({'key': key})
+        return self.col.find_one(
+            {'key': key},
+            {
+                '_id': 0,
+                '_created': 0,
+                '_updated': 0,
+                '_version': 0
+            }
+        )

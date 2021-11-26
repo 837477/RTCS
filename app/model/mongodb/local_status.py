@@ -13,5 +13,10 @@ class LocalStatus(Model):
     def get_local_status(self, date: str):
         return self.col.find_one(
             {'JCG_DT': date},
-            {'_id': 0}
+            {
+                '_id': 0,
+                '_created': 0,
+                '_updated': 0,
+                '_version': 0
+            }
         )

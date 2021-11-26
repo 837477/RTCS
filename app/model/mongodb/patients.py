@@ -13,5 +13,10 @@ class Patients(Model):
     def get_patient(self, date: str):
         return self.col.find_one(
             {'S_DT': date},
-            {'_id': 0}
+            {
+                '_id': 0,
+                '_created': 0,
+                '_updated': 0,
+                '_version': 0
+            }
         )
