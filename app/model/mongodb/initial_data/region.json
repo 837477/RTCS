@@ -1,6 +1,7 @@
 {
     "key": "region",
     "value": {
+        "광진구": "GWANGJIN-GU",
         "DOBONG": ["도봉구 전체", "DOBONG-GU"],
         "YANGCHEON": ["양천구 전체", "YANGCHEON-GU"],
         "ETCADD": ["기타 추가", "ETC ADD"],

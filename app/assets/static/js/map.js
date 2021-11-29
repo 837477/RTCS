@@ -54,7 +54,7 @@ function makeDetailAddr(result, status) {
         content += '<p>- ' + result[0].address.address_name + '</p> <hr>'; 
 
         if (data == null) {
-            content += '<p>서울 특별시만 조회 가능합니다.<\p>';
+            content += '<br><p>서울 특별시만 조회 가능합니다.</p>';
         }
         else {
             for (key in data) {

@@ -29,3 +29,4 @@ def get_patients(db):
         Patients(db).upsert_patient(result)
     
     return result
+
