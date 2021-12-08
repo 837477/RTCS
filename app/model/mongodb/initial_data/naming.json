@@ -32,6 +32,9 @@
         "FIR_INC": ["1차접종 누계", "First, Vaccinated Person"],
         "FIR_SUB": ["접종대상자", "Unvaccinated Person"],
         "FIR_INC_RATE": ["1차접종률(%)", "First, Vaccinated Rate"],
-        "SCD_INC_RATE": ["2차접종률(%)", "Second, Vaccinated Rate"]
+        "SCD_INC_RATE": ["2차접종률(%)", "Second, Vaccinated Rate"],
+        "ADD_INC1": ["당일 추가접종자 수", "Today, Vaccinated Person"],
+        "ADD_INC_RATE": ["추가접종률(%)", "Added Vaccinated Rate"],
+        "ADD_INC": ["추가접종 누계", "Added Vaccinated Person"]
     }   
 }
