@@ -1,5 +1,6 @@
-from fastapi import APIRouter, Request
-from pydantic import BaseModel
+from fastapi import APIRouter, Request, HTTPException
+from fastapi.encoders import jsonable_encoder
+from pydantic import BaseModel, validator, ValidationError
 
 from dependencies import Dependencies, Config
 from controller.local_status import get_all_local_status
@@ -12,13 +13,17 @@ router = APIRouter(
 
 
 class RegionValidation(BaseModel):
-	location: str
+    location: str
 
 
 @router.get("/status")
 async def status():
     data = get_all_local_status(Dependencies.db)
     return map_naming(Dependencies.db, data, "region")
+
+
+class RegionValidation(BaseModel):
+    location: str
 
 
 @router.post("/region/")
