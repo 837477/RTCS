@@ -24,9 +24,12 @@ def get_patients(db):
     today = datetime.date.today().strftime('%Y.%m.%d.00')
     result = Patients(db).get_patient(today)
     if not result:
-        api_data = get_api_data_patients(Config.API_SECRET_KEY)
-        result = api_data['TbCorona19CountStatus']['row'][0]
-        Patients(db).upsert_patient(result)
+        try:
+            api_data = get_api_data_patients(Config.API_SECRET_KEY)
+            result = api_data['TbCorona19CountStatus']['row'][0]
+            Patients(db).upsert_patient(result)
+        except:
+            result = Patients(db).get_patient_recent()
     
     return result
 
