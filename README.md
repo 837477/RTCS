@@ -1,22 +1,20 @@
-# RTCS (RealTime COVID-19 Status)
+# RTCS - RealTime COVID-19 Status
+<br><br>
 
-> 본 프로젝트는 세종대학교 소프트웨어공학 수업의 개인프로젝트로 진행되었습니다.
-> *Version 0.0.1*
-
-***
-
-**Developer**: 837477 <8374770@gmail.com><br>
-**License**: ![LICENSE][LICENSE] (See `LICENSE`)
-
+<div align=center>
+    <strong># FastAPI</strong> &nbsp;
+    <strong># MongoDB</strong> &nbsp;
+    <br><br><br>
+    <p><img width="1393" alt="image" src="https://user-images.githubusercontent.com/37999795/143528930-e04b5561-5826-49b9-8736-f40ff8231630.png"></p>
+</div>
 <br>
 
-<img width="1393" alt="image" src="https://user-images.githubusercontent.com/37999795/143528930-e04b5561-5826-49b9-8736-f40ff8231630.png">
+## What is this?
+> 본 프로젝트는 "소프트웨어공학" 수업의 개인 과제로 진행된 토이 프로젝트입니다.
 
-<br>
+서울열린데이터광장의 데이터 기반으로 실시간 코로나 바이러스 현황을 제공합니다.<br>
 
-## What ?
-서울열린데이터광장의 국내 코로나 바이러스 데이터를 받아와, 정제하여 제공합니다.
-주요 기능은 다음과 같습니다.
+#### 주요 기능
 - 국내 코로나 확진자 현황
 - 서울 코로나 확진자 현황
 - 국내 백신 접종자 현황
@@ -26,15 +24,40 @@
 
 <br>
 
-## How to use
-```
-pip install -r requirements.txt
-
-uvicorn run:app
-# --reload --host 0.0.0.0 --port 80
+## Dependency
+```shell
+python 3.8.X
+MongoDB 5.X
 ```
 <br>
 
+## How to use
+```shell
+# Environments
+export MONGODB_URI="<MongoDB Host>"
+export MONGODB_NAME="<MongoDB Name>"
+export API_SECRET_KEY="<JWT_SECRET_KEY>"
+export KAKAO_MAP_API_KEY="<KAKAO Developer API Key>"
+```
+```shell
+# Run
+pip install -r requirements.txt
+uvicorn app:app --reload --host=0.0.0.0 --port=80
+```
+<br>
 
-<!-- Markdown link & img dfn's -->
-[LICENSE]: https://img.shields.io/github/license/837477/raising_visitor_bot?style=flat-square
+## About Me
+🙋🏻‍♂️ Name: 837477
+
+📧 E-mail: 8374770@gmail.com
+
+🐱 Github: https://github.com/837477
+
+<br>
+
+## Contributing
+1. Fork this repository
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -m 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
